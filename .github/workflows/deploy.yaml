@@ -31,11 +31,17 @@ jobs:
       - name: 5th - Package release
         run: |
           zip -r release.zip \
-            appspec.yml \
+            appspec.yaml \
             scripts \
             package.json \
             package-lock.json \
             dist
+
+      - name: 6th - Authenticate to AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ap-southeast-2
 
 # name: Deploy API to EC2
 
