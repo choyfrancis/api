@@ -1,8 +1,8 @@
-# name: Deploy API to EC2
+name: Deploy API to EC2
 
-# on:
-#   push:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
 
 # permissions:
 #   contents: read
