@@ -1,25 +1,44 @@
-name: Deploy API to EC2
+name: Basic Deploy Workflow
 
 on:
   push:
     branches: [main]
-
-permissions:
-  contents: read
-  id-token: write
-
-env:
-  AWS_REGION: ap-southeast-2
-  S3_BUCKET: YOUR_DEPLOYMENT_BUCKET
-  CODEDEPLOY_APPLICATION: test-api
-  CODEDEPLOY_DEPLOYMENT_GROUP: test-api-production
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 1st - Checking out code
+        uses: actions/checkout@v4
+
+      - name: 2nd - step
+        uses: |
+          echo "Hello World - 2nd step"
+          echo "Your deployment follows here."
+
+# name: Deploy API to EC2
+
+# on:
+#   push:
+#     branches: [main]
+
+# permissions:
+#   contents: read
+#   id-token: write
+
+# env:
+#   AWS_REGION: ap-southeast-2
+#   S3_BUCKET: YOUR_DEPLOYMENT_BUCKET
+#   CODEDEPLOY_APPLICATION: test-api
+#   CODEDEPLOY_DEPLOYMENT_GROUP: test-api-production
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v4
 
 #       - uses: actions/setup-node@v4
 #         with:
