@@ -22,7 +22,7 @@ coverage/
 # TypeScript build metadata
 *.tsbuildinfo
 
-## IDE and OS files
+# IDE and OS files
 .vscode/
 .idea/
 .DS_Store
