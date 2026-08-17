@@ -28,6 +28,15 @@ jobs:
           npm ci
           npm run build
 
+      - name: 5th - Package release
+        run: |
+          zip -r release.zip \
+            appspec.yml \
+            scripts \
+            package.json \
+            package-lock.json \
+            dist
+
 # name: Deploy API to EC2
 
 # on:
