@@ -45,3 +45,8 @@ app.listen(port, "127.0.0.1", () => {
   console.log(`API running on http://127.0.0.1:${port}`);
 });
 ```
+
+Generate tsconfig.json file
+```json
+npx tsc --init
+```
