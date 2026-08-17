@@ -47,6 +47,24 @@ jobs:
           role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
           aws-region: ap-southeast-2
 
+      - name: Show OIDC claims (safe)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('sts.amazonaws.com');
+            const payload = JSON.parse(
+              Buffer.from(token.split('.')[1], 'base64url').toString('utf8')
+            );
+            console.log(JSON.stringify({
+              aud: payload.aud,
+              sub: payload.sub,
+              repository: payload.repository,
+              repository_id: payload.repository_id,
+              repository_owner: payload.repository_owner,
+              repository_owner_id: payload.repository_owner_id,
+              ref: payload.ref
+            }, null, 2));
+
       - name: 7th - Upload artifact and start deployment
         run: |
           artifact_key="test-api/${GITHUB_SHA}.zip"
