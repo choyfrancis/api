@@ -4,22 +4,22 @@ on:
   push:
     branches: [main]
 
-# permissions:
-#   contents: read
-#   id-token: write
+permissions:
+  contents: read
+  id-token: write
 
-# env:
-#   AWS_REGION: ap-southeast-2
-#   S3_BUCKET: YOUR_DEPLOYMENT_BUCKET
-#   CODEDEPLOY_APPLICATION: test-api
-#   CODEDEPLOY_DEPLOYMENT_GROUP: test-api-production
+env:
+  AWS_REGION: ap-southeast-2
+  S3_BUCKET: YOUR_DEPLOYMENT_BUCKET
+  CODEDEPLOY_APPLICATION: test-api
+  CODEDEPLOY_DEPLOYMENT_GROUP: test-api-production
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
 #       - uses: actions/setup-node@v4
 #         with:
