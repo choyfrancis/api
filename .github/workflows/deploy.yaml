@@ -9,13 +9,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1st - Checking out code
+      - name: 1st - Checkout code
         uses: actions/checkout@v4
 
-      - name: 2nd - step
+      - name: 2nd - Use nodejs version 24.18.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.18.0
+          cache: npm
+
+      - name: 3rd - Check nodejs version 24.18.0
         run: |
-          echo "Hello World - 2nd step"
-          echo "Your deployment follows here."
+          node -v
+          npm -v
+
+      - name: 4th - Install and build
+        run: |
+          npm ci
+          npm run build
 
 # name: Deploy API to EC2
 
